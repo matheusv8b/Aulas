@@ -1,14 +1,18 @@
 <?php
-
+//sets
 require_once 'vendor/autoload.php';
 
-$produto = new \App\Model\Produto();
-$produto->setNome('Notebook DELL');
-$produto->setDescricao('i5, 4gb');
+/*$produto = new \App\Model\Produto();
+$produto->setId(1);
+$produto->setNome('teclado');*/
 
 $produtoDao = new \App\Model\ProdutoDao();
-$produtoDao->create($produto);
+$produtoDao->delete(6);
 
+$produtoDao->read();
 
+foreach($produtoDao->read() as $produto):
+    echo $produto['nome']."<br>".$produto['descricao']."<hr>";
+endforeach;
 
 ?>
